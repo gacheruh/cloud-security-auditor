@@ -1,0 +1,60 @@
+{
+  "security_groups": [
+    {
+      "id": "sg-0192834a",
+      "name": "management-sg",
+      "ingress_rules": [
+        {
+          "port": 22,
+          "protocol": "tcp",
+          "cidr_block": "0.0.0.0/0",
+          "description": "Allow SSH from anywhere (High Risk)"
+        },
+        {
+          "port": 3389,
+          "protocol": "tcp",
+          "cidr_block": "0.0.0.0/0",
+          "description": "Allow RDP from anywhere (High Risk)"
+        }
+      ]
+    },
+    {
+      "id": "sg-99887766",
+      "name": "app-tier-sg",
+      "ingress_rules": [
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "cidr_block": "10.0.0.0/16",
+          "description": "Internal VPC HTTPS access only (Secure)"
+        }
+      ]
+    }
+  ],
+  "storage_volumes": [
+    {
+      "volume_id": "vol-0123456789abcdef0",
+      "size_gb": 100,
+      "encrypted": false,
+      "status": "in-use"
+    },
+    {
+      "volume_id": "vol-0fedcba9876543210",
+      "size_gb": 50,
+      "encrypted": true,
+      "status": "in-use"
+    }
+  ],
+  "network_interfaces": [
+    {
+      "eni_id": "eni-111122223333",
+      "status": "available",
+      "description": "Orphaned ENI from decommissioned instance"
+    },
+    {
+      "eni_id": "eni-444455556666",
+      "status": "in-use",
+      "description": "Attached to production web server"
+    }
+  ]
+}
